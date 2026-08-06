@@ -29,9 +29,22 @@ public class ShipmentService {
                 .estimatedDelivery(request.estimatedDelivery)
                 .build();
         shipmentRepository.save(shipment);
-        return shipment;
+        return mapToResponseDto(shipment);
     }
     private String generateTrackingNumber(){
         return "TRK-" + UUID.randomUUID().toString().substring(0,8).toUpperCase();
+    }
+    private ShipmentDTO.ShipmentResponse mapToResponseDto(Shipment shipment){
+        return ShipmentDTO.ShipmentResponse.builder()
+                .id(shipment.getId())
+                .trackingNumber(shipment.getTrackingNumber())
+                .origin(shipment.getOrigin())
+                .destination(shipment.getDestination())
+                .status(shipment.getStatus())
+                .createdAt(shipment.getCreatedAt())
+                .updatedAt(shipment.getUpdatedAt())
+                .currentLocation(shipment.getCurrentLocation())
+                .estimatedDelivery(shipment.getEstimatedDelivery())
+                .build();
     }
 }

@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/shipments")
 @RequiredArgsConstructor
@@ -19,5 +21,8 @@ public class ShipmentController {
     }
 
     @GetMapping
+    public ResponseEntity<List<ShipmentDTO.ShipmentResponse>> getAllShipments(){
+        
+    }
 
 }

@@ -3,6 +3,8 @@ package com.algostyle.shipment.shipment;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 public class ShipmentDTO {
 
     @Getter
@@ -15,6 +17,23 @@ public class ShipmentDTO {
         public String origin;
         @NotBlank(message = "Destination is required")
         public String destination;
+        public String estimatedDelivery;
+    }
+
+    @Getter
+    @Setter
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class ShipmentResponse{
+        private Long id;
+        private String trackingNumber;
+        public String origin;
+        public String destination;
+        private ShipmentStatus status;
+        private LocalDateTime createdAt;
+        private LocalDateTime updatedAt;
+        private String currentLocation;
         public String estimatedDelivery;
     }
 }

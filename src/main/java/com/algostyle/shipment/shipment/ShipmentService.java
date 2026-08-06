@@ -20,7 +20,7 @@ public class ShipmentService {
      * > Avec final : La dépendance devient immuable.
      */
 
-    public Shipment createShipment(ShipmentDTO.CreateShipmentRequest request){
+    public ShipmentDTO.ShipmentResponse createShipment(ShipmentDTO.CreateShipmentRequest request){
         String trackingNumber=generateTrackingNumber();
         Shipment shipment = Shipment.builder()
                 .trackingNumber(trackingNumber)

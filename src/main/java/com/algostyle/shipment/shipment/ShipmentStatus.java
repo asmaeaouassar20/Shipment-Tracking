@@ -1,7 +1,7 @@
 package com.algostyle.shipment.shipment;
 
 public enum ShipmentStatus {
-    ORDER_PLACES,
+    ORDER_PLACED,
     PROCESSING,
     PICKED_UP,
     IN_TRANSIT,

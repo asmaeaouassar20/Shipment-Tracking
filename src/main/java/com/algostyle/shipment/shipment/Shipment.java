@@ -40,7 +40,7 @@ public class Shipment {
 
     private String currentLocation;
 
-    private String estimatedDelivery;
+    private String estimatedDelivery; // la date ou le moment estimé pour la livraison du colis
 
     @PrePersist
     protected void onCreate(){

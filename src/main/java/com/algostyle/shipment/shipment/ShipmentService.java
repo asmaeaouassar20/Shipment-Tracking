@@ -3,6 +3,8 @@ package com.algostyle.shipment.shipment;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service // Dit à Spring : "crée un objet ShipmentService et gère-le"
 @AllArgsConstructor // Lombok crée automatiquement un constructeur avec tous les attributs final
 public class ShipmentService {
@@ -18,13 +20,18 @@ public class ShipmentService {
      * > Avec final : La dépendance devient immuable.
      */
 
-    public Shipment createShipment(){
+    public Shipment createShipment(ShipmentDTO.CreateShipmentRequest request){
+        String trackingNumber=generateTrackingNumber();
         Shipment shipment = Shipment.builder()
-                .trackingNumber("TRACK123456")
-                .origin("New York")
-                .destination("Los Angeles")
+                .trackingNumber(trackingNumber)
+                .origin(request.origin)
+                .destination(request.destination)
+                .estimatedDelivery(request.estimatedDelivery)
                 .build();
         shipmentRepository.save(shipment);
         return shipment;
+    }
+    private String generateTrackingNumber(){
+        return "TRK-" + UUID.randomUUID().toString().substring(0,8).toUpperCase();
     }
 }

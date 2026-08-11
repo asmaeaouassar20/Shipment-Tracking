@@ -1,5 +1,6 @@
 package com.algostyle.shipment.shipment;
 
+import com.algostyle.shipment.exception.ShipmentNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -44,7 +45,7 @@ public class ShipmentService {
     }
     public ShipmentDTO.ShipmentResponse getShipmentById(Long id){
         Shipment shipment = shipmentRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Shipment not found with id : " +id ));
+                .orElseThrow(() -> new ShipmentNotFoundException(id ));
         return mapToResponseDto(shipment);
     }
 

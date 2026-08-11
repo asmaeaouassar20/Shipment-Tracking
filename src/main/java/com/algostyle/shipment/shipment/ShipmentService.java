@@ -33,9 +33,7 @@ public class ShipmentService {
         shipmentRepository.save(shipment);
         return mapToResponseDto(shipment);
     }
-    private String generateTrackingNumber(){
-        return "TRK-" + UUID.randomUUID().toString().substring(0,8).toUpperCase();
-    }
+
 
 
     public List<ShipmentDTO.ShipmentResponse> getAllShipments(){
@@ -44,8 +42,15 @@ public class ShipmentService {
                 .map(this::mapToResponseDto)
                 .collect(Collectors.toList());
     }
+    public ShipmentDTO.ShipmentResponse getShipmentById(Long id){
+        Shipment shipment = shipmentRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Shipment not found with id : " +id ));
+        return mapToResponseDto(shipment);
+    }
 
 
+
+    // === utilities function ===
     private ShipmentDTO.ShipmentResponse mapToResponseDto(Shipment shipment){
         return ShipmentDTO.ShipmentResponse.builder()
                 .id(shipment.getId())
@@ -59,4 +64,9 @@ public class ShipmentService {
                 .estimatedDelivery(shipment.getEstimatedDelivery())
                 .build();
     }
+    private String generateTrackingNumber(){
+        return "TRK-" + UUID.randomUUID().toString().substring(0,8).toUpperCase();
+    }
+
+
 }

@@ -3,7 +3,9 @@ package com.algostyle.shipment.shipment;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service // Dit à Spring : "crée un objet ShipmentService et gère-le"
 @AllArgsConstructor // Lombok crée automatiquement un constructeur avec tous les attributs final
@@ -34,6 +36,16 @@ public class ShipmentService {
     private String generateTrackingNumber(){
         return "TRK-" + UUID.randomUUID().toString().substring(0,8).toUpperCase();
     }
+
+
+    public List<ShipmentDTO.ShipmentResponse> getAllShipments(){
+        List<Shipment> shipments = shipmentRepository.findAll();
+        return shipments.stream()
+                .map(this::mapToResponseDto)
+                .collect(Collectors.toList());
+    }
+
+
     private ShipmentDTO.ShipmentResponse mapToResponseDto(Shipment shipment){
         return ShipmentDTO.ShipmentResponse.builder()
                 .id(shipment.getId())

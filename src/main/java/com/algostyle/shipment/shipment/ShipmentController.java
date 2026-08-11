@@ -22,7 +22,8 @@ public class ShipmentController {
 
     @GetMapping
     public ResponseEntity<List<ShipmentDTO.ShipmentResponse>> getAllShipments(){
-        
+        var shipments = shipmentService.getAllShipments();
+        return ResponseEntity.status(HttpStatus.OK).body(shipments);
     }
 
 }

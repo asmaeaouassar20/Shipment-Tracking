@@ -2,6 +2,7 @@ package com.algostyle.shipment.shipment;
 
 import com.algostyle.shipment.exception.ShipmentNotFoundException;
 import lombok.AllArgsConstructor;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,6 +16,8 @@ public class ShipmentService {
     // C'est la dépendance dont ShipmentService a besoin.
     // Spring va chercher un objet ShipmentRepository et l'injecter ici.
     private final ShipmentRepository shipmentRepository;
+
+    private final SimpMessagingTemplate simpMessagingTemplate; // déclare une dépendance SimpMessagingTemplate qui permet d’envoyer des messages WebSocket depuis ton application vers les clients connectés.
 
     /**
      * === final ===

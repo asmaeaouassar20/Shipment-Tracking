@@ -31,4 +31,10 @@ public class ShipmentController {
         ShipmentDTO.ShipmentResponse shipment = shipmentService.getShipmentById(id);
         return ResponseEntity.status(HttpStatus.OK).body(shipment);
     }
+
+    @GetMapping("/track/{trackingNumber}")
+    public  ResponseEntity<?> getShipmentByTrackingNumber(@PathVariable String trackingNumber){
+        ShipmentDTO.ShipmentResponse shipment = shipmentService.getShipmentByTrackingNumber(trackingNumber);
+        return ResponseEntity.status(HttpStatus.OK).body(shipment);
+    }
 }

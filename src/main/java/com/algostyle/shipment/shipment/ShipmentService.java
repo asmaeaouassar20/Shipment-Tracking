@@ -69,5 +69,10 @@ public class ShipmentService {
         return "TRK-" + UUID.randomUUID().toString().substring(0,8).toUpperCase();
     }
 
+    public ShipmentDTO.ShipmentResponse getShipmentByTrackingNumber(String trackingNumber){
+        Shipment shipment = shipmentRepository.findByTrackingNumber(trackingNumber)
+                .orElseThrow( () -> new RuntimeException("Shipment not found with tracking number: "+trackingNumber) );
+        return mapToResponseDto(shipment);
+    }
 
 }

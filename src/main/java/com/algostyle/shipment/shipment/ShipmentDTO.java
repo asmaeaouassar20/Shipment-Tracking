@@ -36,4 +36,12 @@ public class ShipmentDTO {
         private String currentLocation;
         public String estimatedDelivery;
     }
+
+
+
+    @Getter
+    public static class UpdateStatusRequest{
+        private ShipmentStatus status;
+        private String currentLocation;
+    }
 }

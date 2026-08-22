@@ -75,4 +75,15 @@ public class ShipmentService {
         return mapToResponseDto(shipment);
     }
 
+
+    public ShipmentDTO.ShipmentResponse updateShipmentStatus(ShipmentDTO.UpdateStatusRequest request, Long id){
+        Shipment shipment = shipmentRepository.findById(id).orElseThrow(()-> new RuntimeException("Shipment not found with id: "+id));
+        shipment.setStatus(request.getStatus());
+        if(request.getCurrentLocation()!=null){
+            shipment.setCurrentLocation(request.getCurrentLocation());
+        }
+        shipment = shipmentRepository.save(shipment);
+        return mapToResponseDto(shipment);
+    }
+
 }

@@ -108,6 +108,16 @@ public class ShipmentService {
         log.info("Sent Shipment status update: {}" , statusUpdateMessage);
     }
 
-
+    private String getStatusMessage(ShipmentStatus status){
+        return switch (status){
+            case ORDER_PLACED -> "Order has ben placed";
+            case PROCESSING -> "Order is being processed";
+            case PICKED_UP -> "Package has been picked up";
+            case IN_TRANSIT -> "Package is in transit";
+            case OUT_FOR_DELIVERY -> "package is out for delivery";
+            case DELIVERED -> "Package has been delivered";
+            case EXCEPTION -> "Delivery exception occured";
+        };
+    }
 
 }

@@ -91,4 +91,23 @@ public class ShipmentService {
         return mapToResponseDto(shipment);
     }
 
+
+    public void notifyShipmentStatusUpdate(Shipment shipment, String message){
+        var statusUpdateMessage =
+                ShipmentDTO.StatusUpdateMessage.builder()
+                        .shipmentId(shipment.getId())
+                        .trackingNumber(shipment.getTrackingNumber())
+                        .status(shipment.getStatus())
+                        .currentLocation(shipment.getCurrentLocation())
+                        .timestamp(shipment.getUpdatedAt())
+                        .message(message)
+                        .build();
+        simpMessagingTemplate.convertAndSend("/topic/shipments" , statusUpdateMessage);
+        simpMessagingTemplate.convertAndSend("/topic/shipments/"+shipment.getId());
+
+        log.info("Sent Shipment status update: {}" , statusUpdateMessage);
+    }
+
+
+
 }

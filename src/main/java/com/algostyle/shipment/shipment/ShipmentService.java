@@ -2,6 +2,7 @@ package com.algostyle.shipment.shipment;
 
 import com.algostyle.shipment.exception.ShipmentNotFoundException;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,7 @@ import java.util.stream.Collectors;
 
 @Service // Dit à Spring : "crée un objet ShipmentService et gère-le"
 @AllArgsConstructor // Lombok crée automatiquement un constructeur avec tous les attributs final
+@Slf4j  // @Slf4j sert à générer automatiquement un objet log dans ta classe, pour pouvoir écrire des logs comme log.info(), log.error(), log.debug(),
 public class ShipmentService {
 
     // C'est la dépendance dont ShipmentService a besoin.

@@ -37,6 +37,7 @@ public class ShipmentService {
                 .estimatedDelivery(request.estimatedDelivery)
                 .build();
         shipmentRepository.save(shipment);
+        notifyShipmentStatusUpdate(shipment,getStatusMessage(shipment.getStatus()));
         return mapToResponseDto(shipment);
     }
 
@@ -88,6 +89,7 @@ public class ShipmentService {
             shipment.setCurrentLocation(request.getCurrentLocation());
         }
         shipment = shipmentRepository.save(shipment);
+        notifyShipmentStatusUpdate(shipment,getStatusMessage(shipment.getStatus()));
         return mapToResponseDto(shipment);
     }
 
@@ -103,7 +105,7 @@ public class ShipmentService {
                         .message(message)
                         .build();
         simpMessagingTemplate.convertAndSend("/topic/shipments" , statusUpdateMessage);
-        simpMessagingTemplate.convertAndSend("/topic/shipments/"+shipment.getId());
+        simpMessagingTemplate.convertAndSend("/topic/shipments/"+shipment.getId() , statusUpdateMessage);
 
         log.info("Sent Shipment status update: {}" , statusUpdateMessage);
     }

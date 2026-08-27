@@ -1,5 +1,6 @@
-import { Component, inject , OnInit } from '@angular/core';
+import { Component, inject , OnInit, signal } from '@angular/core';
 import { ShipmentService } from '../../services/shipment-service';
+import { Shipment } from '../../models/shipment.model';
 
 @Component({
   selector: 'app-shipments',
@@ -7,13 +8,16 @@ import { ShipmentService } from '../../services/shipment-service';
   templateUrl: './shipments.html',
   styleUrl: './shipments.css',
 })
-export class Shipments implements OnInit {
-    ngOnInit(): void {
-      throw new Error('Method not implemented.');
-    }
+export class Shipments implements OnInit {    
     private shipmentService = inject(ShipmentService);
+    shipments = signal<Shipment[]>([]);
     
-    ngOnInt() :  void{
-      console.log('RUNNING...');
+    ngOnInit() :  void{
+      this.loadShipments();
+    }
+    loadShipments() : void{
+      this.shipmentService.getAllShipments().subscribe( (shipments) => {
+        this.shipments.set(shipments);
+      });
     }
 }

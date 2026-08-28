@@ -15,7 +15,7 @@ export interface Shipment {
     id:number;
     trackingNumber:string;
     origin:string;
-    destinatination:string;
+    destination:string;
     status:ShipmentStatus;
     createdAt:string;
     updatedAt:string;

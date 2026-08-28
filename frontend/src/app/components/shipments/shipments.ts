@@ -1,10 +1,11 @@
 import { Component, inject , OnInit, signal } from '@angular/core';
 import { ShipmentService } from '../../services/shipment-service';
 import { Shipment } from '../../models/shipment.model';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-shipments',
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './shipments.html',
   styleUrl: './shipments.css',
 })

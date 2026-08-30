@@ -59,8 +59,7 @@ export class UpdateShipment implements OnInit {
     this.isSubmitting.set(true);
     this.errorMessage.set('');
 
-    const {shipmentId, status, currentLocation} = this.updateForm.value;
-    console.log(shipmentId, status, currentLocation);
+    const {shipmentId, status, currentLocation} = this.updateForm.value;    
     this.shipmentService.updateShipment(shipmentId, {status,currentLocation})
     .pipe(
       catchError( (error) => {

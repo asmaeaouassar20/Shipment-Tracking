@@ -1,6 +1,6 @@
 import { Component, inject , OnInit, signal } from '@angular/core';
 import { ShipmentService } from '../../services/shipment-service';
-import { Shipment, STATUS_LABELS } from '../../models/shipment.model';
+import { Shipment, SHIPMENT_STATUS, ShipmentStatus, STATUS_LABELS } from '../../models/shipment.model';
 import { DatePipe } from '@angular/common';
 
 @Component({
@@ -22,4 +22,22 @@ export class Shipments implements OnInit {
         this.shipments.set(shipments);
       });
     }
+
+
+    // TODO : color for every status
+    /*
+    readonly STATUS_BADGE_CLASS_MAP : Record<ShipmentStatus,string> = {
+      [SHIPMENT_STATUS.ORDER_PLACED] : 'une classe  css'
+      .
+      .
+      .
+      .
+    }
+      
+
+    // TODO mapin status to its css class
+    getStatusBadge(status : ShipmentStatus) : string{
+      return STATUS_BADGE_CLASS_MAP[status];
+    }
+      */
 }

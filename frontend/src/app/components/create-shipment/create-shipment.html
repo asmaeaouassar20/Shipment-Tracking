@@ -1,0 +1,27 @@
+<form [formGroup]="shipmentForm" (ngSubmit)="createShipment()">
+    <div>
+        <label>origin</label>
+        <input type="text" formControlName="origin" />
+        @if(hasErrorField('origin')){
+            <p>{{getErrorMessage('origin')}}</p>
+        }
+    </div>
+
+    <div>
+        <label>destination</label>
+        <input type="text" formControlName="destination" />
+        @if(hasErrorField('destination')){
+            <p>{{getErrorMessage('destination')}}</p>
+        }
+    </div>
+
+    <div>
+        <label>estimated Delivery</label>
+        <input type="text" formControlName="estimatedDelivery" />
+        @if(hasErrorField('estimatedDelivery')){
+            <p>{{getErrorMessage('estimatedDelivery')}}</p>
+        }
+    </div>
+
+    <button type="submit">Submit</button>
+</form>

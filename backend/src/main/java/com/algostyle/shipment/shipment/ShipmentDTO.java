@@ -47,6 +47,7 @@ public class ShipmentDTO {
 
 
     @Builder
+    @Getter
     public static class StatusUpdateMessage{
         private Long shipmentId;
         private String trackingNumber;

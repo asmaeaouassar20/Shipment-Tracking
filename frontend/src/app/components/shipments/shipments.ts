@@ -2,6 +2,7 @@ import { Component, inject , OnInit, signal } from '@angular/core';
 import { ShipmentService } from '../../services/shipment-service';
 import { Shipment, SHIPMENT_STATUS, ShipmentStatus, STATUS_LABELS } from '../../models/shipment.model';
 import { DatePipe } from '@angular/common';
+import { WebsocketService } from '../../services/websocket-service';
 
 @Component({
   selector: 'app-shipments',
@@ -11,11 +12,13 @@ import { DatePipe } from '@angular/common';
 })
 export class Shipments implements OnInit {    
     private shipmentService = inject(ShipmentService);
+    private websocketService = inject(WebsocketService);
     shipments = signal<Shipment[]>([]);
     STATUS_LABELS = STATUS_LABELS;
     
     ngOnInit() :  void{
       this.loadShipments();
+      this.websocketService.connect();
     }
     loadShipments() : void{
       this.shipmentService.getAllShipments().subscribe( (shipments) => {

@@ -4,9 +4,11 @@
 <li>{{shipment.trackingNumber}}</li>
 <li>{{shipment.createdAt | date : 'short' }}</li>
 <li>{{shipment.currentLocation}}</li>
+<li>{{STATUS_LABELS[shipment.status]}}</li>
 <li>{{shipment.destination}}</li>
 <li>{{shipment.origin}}</li>
 <li>{{shipment.estimatedDelivery}}</li>
+<hr/>
 }@empty {
     <li>no shipment yet</li>
 }

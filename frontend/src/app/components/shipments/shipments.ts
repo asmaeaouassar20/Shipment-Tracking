@@ -17,7 +17,10 @@ export class Shipments implements OnInit {
     STATUS_LABELS = STATUS_LABELS;
     
     ngOnInit() :  void{
-      this.loadShipments();
+      this.loadShipments();   
+      this.connectWebSocket();   
+    }
+    private connectWebSocket() : void{
       this.websocketService.connect();
     }
     loadShipments() : void{

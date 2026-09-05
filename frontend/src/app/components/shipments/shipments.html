@@ -1,15 +1,15 @@
-<ul>
-    @for(shipment of shipments(); track shipment.id){
-<li>{{shipment.id}}</li>
-<li>{{shipment.trackingNumber}}</li>
-<li>{{shipment.createdAt | date : 'short' }}</li>
-<li>{{shipment.currentLocation}}</li>
-<li>{{STATUS_LABELS[shipment.status]}}</li>
-<li>{{shipment.destination}}</li>
-<li>{{shipment.origin}}</li>
-<li>{{shipment.estimatedDelivery}}</li>
-<hr/>
+
+@for(shipment of shipments(); track shipment.id){
+<div class="row row-shipment">
+    <div class="col"><strong>ID :</strong> {{shipment.id}}</div>
+    <div class="col"><strong>Tracking Number : </strong>{{shipment.trackingNumber}}</div>
+    <div class="col"><strong>Created at : </strong>{{shipment.createdAt | date : 'short' }}</div>
+    <div class="col"><strong>CurrentLocation :</strong> {{shipment.currentLocation}}</div>
+    <div class="col"><strong>Status :</strong> {{STATUS_LABELS[shipment.status]}}</div>
+    <div class="col"><strong>Destination :</strong> {{shipment.destination}}</div>
+    <div class="col"><strong>Origin :</strong> {{shipment.origin}}</div>
+    <div class="col"><strong>Estimated Delivery : </strong>{{shipment.estimatedDelivery}}</div>
+</div>
 }@empty {
-    <li>no shipment yet</li>
+<li>no shipment yet</li>
 }
-</ul>

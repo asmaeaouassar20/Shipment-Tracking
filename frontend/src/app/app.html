@@ -1,5 +1,18 @@
-<app-header />
-<app-notification />
-<app-update-shipment/>
-<app-create-shipment />
-<app-shipments />
+<div class="container">
+    <div class="row">
+       <div class="col text-center"><button (click)="toggleTheme()">Theme</button></div>
+    </div>
+    <div class="row">
+       <div class="col text-center"> <app-header /></div>
+    </div>
+    <div class="row">
+       <div class="col text-center"> <app-notification /></div>
+    </div>
+    <div class="row">
+        <div class="col"><app-update-shipment /></div>
+        <div class="col"><app-create-shipment /></div>
+    </div>
+    <div class="row">
+        <div class="col text-center"><app-shipments /></div>
+    </div>
+</div>

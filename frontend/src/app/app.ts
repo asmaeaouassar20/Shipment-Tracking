@@ -13,4 +13,8 @@ import { Notification } from "./components/notification/notification";
 })
 export class App {
   protected readonly title = signal('frontend');
+
+  toggleTheme(){
+    
+  }
 }

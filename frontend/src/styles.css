@@ -14,9 +14,20 @@ body{
 button{
     background-color: var(--bg);
     color: var(--text);
+    border: 1px solid var(--text);     
+    border-radius: 4px !important; 
+    padding: 2px 20px;
+}
+button:hover{
+    background-color: var(--text);
+    color: var(--bg);
+    border: 1px solid var(--bg);     
 }
 .section-app{    
     padding: 12px;
-    border: 1px solid var(--text) ;
+    border-bottom: 1px solid var(--text) ;
     background-color: var(--bg);
+}
+label, .title{
+    color: var(--text);
 }

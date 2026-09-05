@@ -1,11 +1,11 @@
 :root {
-    --bg: #ffffff;
-    --text: #111111;
+    --bg: #F6F4EF;
+    --text: #1A1A1A;
 }
 
-[data-theme="dark"]{
-    --bg: #111111;
-    --text: #ffffff;
+[data-theme="dark"] {
+    --bg: #0B0F1E;
+    --text: #F4F4F5;
 }
 body{
     background: var(--bg);
@@ -14,4 +14,9 @@ body{
 button{
     background-color: var(--bg);
     color: var(--text);
+}
+.section-app{    
+    padding: 12px;
+    border: 1px solid var(--text) ;
+    background-color: var(--bg);
 }

@@ -1,5 +1,6 @@
 <form [formGroup]="updateForm" (ngSubmit)="updateShipment()" >
     <select 
+    class="form-control mb-3"
     formControlName="shipmentId"
     (change)="onSelectShipmentId()"
      >
@@ -8,11 +9,11 @@
         <option [ngValue]="shipment.id" >
             {{shipment.trackingNumber}} - {{shipment.destination}}
         </option>
-    }
+    } 
     </select>
-    <div>
-        <label>New Status</label>
-        <select formControlName="status">
+    <div class="mb-3">
+        <label class="form-label">New Status</label>
+        <select class="form-control" formControlName="status">
             @for(status of statusOptions; track status){
                 <option [ngValue]="status" >
                     {{Status_LABELS[status]}}
@@ -20,9 +21,9 @@
             }
         </select>
     </div>
-    <div>
-        <label>Current Location</label>
-        <input type="text" formControlName="currentLocation" />
+    <div class="mb-3">
+        <label class="form-label">Current Location</label>
+        <input class="form-control" type="text" formControlName="currentLocation" />
     </div>
-    <button type="submit" >Update Shipment</button>
+    <button type="submit" class="btn btn-success" >Update Shipment</button>
 </form>

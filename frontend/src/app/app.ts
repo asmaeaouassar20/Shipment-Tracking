@@ -4,6 +4,7 @@ import { CreateShipment } from "./components/create-shipment/create-shipment";
 import { UpdateShipment } from "./components/update-shipment/update-shipment";
 import { Header } from "./components/header/header";
 import { Notification } from "./components/notification/notification";
+import { ThemeService } from './services/theme-service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,12 @@ import { Notification } from "./components/notification/notification";
 export class App {
   protected readonly title = signal('frontend');
 
-  toggleTheme(){
-    
+  constructor(private themeService:ThemeService){
+    this.themeService.initTheme();
   }
+
+  toggleTheme(){
+    this.themeService.toggleTheme();
+  }
+ 
 }

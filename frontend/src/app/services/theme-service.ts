@@ -6,14 +6,18 @@ import { Injectable } from '@angular/core';
 export class ThemeService {
 
   initTheme() {
-    const savedTheme = localStorage.getItem('theme');
+    const theme = this.getCurrentTheme();
+    document.documentElement.setAttribute('data-theme', theme);
+  }
 
+  getCurrentTheme() {
+    const savedTheme = localStorage.getItem('theme');
     const theme = savedTheme ??
       (window.matchMedia('(prefers-color-scheme: dark)').matches
         ? 'dark'
         : 'light'
       );
-    document.documentElement.setAttribute('data-theme', theme);
+    return theme;
   }
 
   toggleTheme() {

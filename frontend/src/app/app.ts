@@ -15,12 +15,16 @@ import { ThemeService } from './services/theme-service';
 export class App {
   protected readonly title = signal('frontend');
 
+  currentTheme: string = "";
+
   constructor(private themeService:ThemeService){
     this.themeService.initTheme();
+    this.currentTheme=themeService.getCurrentTheme();
   }
 
   toggleTheme(){
     this.themeService.toggleTheme();
+    this.currentTheme=this.themeService.getCurrentTheme();
   }
  
 }

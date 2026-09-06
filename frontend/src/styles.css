@@ -7,29 +7,81 @@
     --bg: #0B0F1E;
     --text: #F4F4F5;
 }
-body{
+
+body {
     background: var(--bg);
     color: var(--text);
 }
-button{
+
+button {
     background-color: var(--bg);
     color: var(--text);
-    border: 1px solid var(--text);     
-    border-radius: 4px !important; 
+    border: 1px solid var(--text);
+    border-radius: 4px !important;
     padding: 2px 20px;
-       box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
-button:hover{
+
+button:hover {
     background-color: var(--text);
     color: var(--bg);
-    border: 1px solid var(--bg);     
+    border: 1px solid var(--bg);
 }
-.section-app{    
+
+.section-app {
     padding: 12px;
-    border-bottom: 1px solid var(--text) ;
+    border-bottom: 1px solid var(--text);
     background-color: var(--bg);
- 
+
 }
-label, .title, span{
+
+label,
+.title,
+span {
     color: var(--text);
+}
+
+/* ===== Badge de base ===== */
+.status-badge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    border-radius: 9999px;
+    font-weight: 600;
+}
+
+/* ===== ORDER_PLACED (neutre / slate) ===== */
+.status-order-placed {
+    background-color: #64748b;
+}
+
+/* ===== PROCESSING (ambre) ===== */
+.status-processing {
+    background-color: #d97706;
+}
+
+/* ===== PICKED_UP (indigo) ===== */
+.status-picked-up {
+    background-color: #6366f1;
+}
+
+/* ===== IN_TRANSIT (bleu) ===== */
+.status-in-transit {
+    background-color: #2563eb;
+}
+
+/* ===== OUT_FOR_DELIVERY (violet) ===== */
+.status-out-for-delivery {
+    background-color: #7c3aed;
+}
+
+/* ===== DELIVERED (émeraude / succès) ===== */
+.status-delivered {
+    background-color: #059669;
+}
+
+/* ===== EXCEPTION (rouge / alerte) ===== */
+.status-exception {
+    background-color: #dc2626;
 }

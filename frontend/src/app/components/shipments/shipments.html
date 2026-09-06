@@ -5,7 +5,7 @@
     <div class="col"><strong>Tracking Number : </strong>{{shipment.trackingNumber}}</div>
     <div class="col"><strong>Created at : </strong>{{shipment.createdAt | date : 'short' }}</div>
     <div class="col"><strong>CurrentLocation :</strong> {{shipment.currentLocation}}</div>
-    <div class="col"><strong>Status :</strong> {{STATUS_LABELS[shipment.status]}}</div>
+    <div class="col status-badge {{getStatusBadge(shipment.status)}}"><strong>Status :</strong> {{STATUS_LABELS[shipment.status]}}</div>
     <div class="col"><strong>Destination :</strong> {{shipment.destination}}</div>
     <div class="col"><strong>Origin :</strong> {{shipment.origin}}</div>
     <div class="col"><strong>Estimated Delivery : </strong>{{shipment.estimatedDelivery}}</div>

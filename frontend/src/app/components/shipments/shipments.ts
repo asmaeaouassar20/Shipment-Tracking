@@ -1,6 +1,6 @@
 import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
 import { ShipmentService } from '../../services/shipment/shipment-service';
-import { STATUS_LABELS, StatusUpdateMessage } from '../../models/shipment.model';
+import { SHIPMENT_STATUS, ShipmentStatus, STATUS_LABELS, StatusUpdateMessage } from '../../models/shipment.model';
 import { DatePipe } from '@angular/common';
 import { WebsocketService } from '../../services/websocket/websocket-service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -76,20 +76,21 @@ export class Shipments implements OnInit {
   }
 
 
-  // TODO : color for every status
-  /*
+  // color for every status
   readonly STATUS_BADGE_CLASS_MAP : Record<ShipmentStatus,string> = {
-    [SHIPMENT_STATUS.ORDER_PLACED] : 'une classe  css'
-    .
-    .
-    .
-    .
+    [SHIPMENT_STATUS.ORDER_PLACED] : 'status-order-placed',
+    [SHIPMENT_STATUS.PROCESSING] : 'status-processing',
+    [SHIPMENT_STATUS.PICKED_UP] : 'status-picked-up',
+    [SHIPMENT_STATUS.IN_TRANSIT] : 'status-in-transit',
+    [SHIPMENT_STATUS.OUT_FOR_DELIVERY] : 'status-out-for-delivery',
+    [SHIPMENT_STATUS.DELIVERED] : 'status-delivered',
+    [SHIPMENT_STATUS.EXCEPTION] : 'status-exception'        
   }
     
 
   // TODO mapin status to its css class
   getStatusBadge(status : ShipmentStatus) : string{
-    return STATUS_BADGE_CLASS_MAP[status];
+    return this.STATUS_BADGE_CLASS_MAP[status];
   }
-    */
+  
 }

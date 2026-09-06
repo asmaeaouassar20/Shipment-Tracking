@@ -152,3 +152,6 @@ Ce projet a notamment pour objectif de mettre en pratique :
 - La gestion des notifications temps réel
 - La création d'une interface responsive
 - La gestion Light / Dark Mode
+
+<br/><br/><br/>
+<img width="1906" height="907" alt="image" src="https://github.com/user-attachments/assets/3fe9cf15-ab9d-41fa-966c-4999dbf43f74" />

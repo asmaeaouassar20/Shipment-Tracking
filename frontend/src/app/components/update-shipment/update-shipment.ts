@@ -15,7 +15,7 @@ export class UpdateShipment implements OnInit {
   private fb = inject(FormBuilder);
   private shipmentService = inject(ShipmentService);
 
-  shipments = signal<Shipment[]>([]);
+  shipments = this.shipmentService.shipments;
   errorMessage = signal<string>('');
   isLoading = signal<boolean>(false);
   isSubmitting = signal<boolean>(false);
@@ -44,7 +44,6 @@ export class UpdateShipment implements OnInit {
     }))
     .subscribe(
       (shipments) => {
-        this.shipments.set(shipments);
         this.isLoading.set(false);
       }
     )

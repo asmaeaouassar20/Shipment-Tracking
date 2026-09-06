@@ -56,4 +56,6 @@ public class ShipmentDTO {
         private LocalDateTime timestamp;
         private String message;
     }
+
+
 }

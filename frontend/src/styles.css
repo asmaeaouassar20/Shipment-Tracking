@@ -17,6 +17,7 @@ button{
     border: 1px solid var(--text);     
     border-radius: 4px !important; 
     padding: 2px 20px;
+       box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 button:hover{
     background-color: var(--text);
@@ -27,7 +28,8 @@ button:hover{
     padding: 12px;
     border-bottom: 1px solid var(--text) ;
     background-color: var(--bg);
+ 
 }
-label, .title{
+label, .title, span{
     color: var(--text);
 }

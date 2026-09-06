@@ -1,7 +1,7 @@
 import { DestroyRef, inject, Injectable } from '@angular/core';
 import { Client, StompSubscription, Versions } from '@stomp/stompjs';
 import { BehaviorSubject, every, Observable } from 'rxjs';
-import { StatusUpdateMessage } from '../models/shipment.model';
+import { StatusUpdateMessage } from '../../models/shipment.model';
 
 @Injectable({
   providedIn: 'root',

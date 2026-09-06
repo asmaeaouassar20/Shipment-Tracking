@@ -1,7 +1,7 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Shipment, SHIPMENT_STATUS, STATUS_LABELS } from '../../models/shipment.model';
-import { ShipmentService } from '../../services/shipment-service';
+import { SHIPMENT_STATUS, STATUS_LABELS } from '../../models/shipment.model';
+import { ShipmentService } from '../../services/shipment/shipment-service';
 import { catchError, of } from 'rxjs';
 
 @Component({

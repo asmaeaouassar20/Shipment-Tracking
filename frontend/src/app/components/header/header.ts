@@ -1,5 +1,5 @@
 import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
-import { WebsocketService } from '../../services/websocket-service';
+import { WebsocketService } from '../../services/websocket/websocket-service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({

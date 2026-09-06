@@ -1,8 +1,8 @@
 import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
-import { ShipmentService } from '../../services/shipment-service';
-import { Shipment, SHIPMENT_STATUS, ShipmentStatus, STATUS_LABELS, StatusUpdateMessage } from '../../models/shipment.model';
+import { ShipmentService } from '../../services/shipment/shipment-service';
+import { STATUS_LABELS, StatusUpdateMessage } from '../../models/shipment.model';
 import { DatePipe } from '@angular/common';
-import { WebsocketService } from '../../services/websocket-service';
+import { WebsocketService } from '../../services/websocket/websocket-service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({

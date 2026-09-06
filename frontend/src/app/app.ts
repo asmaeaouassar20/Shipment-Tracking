@@ -4,7 +4,7 @@ import { CreateShipment } from "./components/create-shipment/create-shipment";
 import { UpdateShipment } from "./components/update-shipment/update-shipment";
 import { Header } from "./components/header/header";
 import { Notification } from "./components/notification/notification";
-import { ThemeService } from './services/theme-service';
+import { ThemeService } from './services/theme/theme-service';
 
 @Component({
   selector: 'app-root',

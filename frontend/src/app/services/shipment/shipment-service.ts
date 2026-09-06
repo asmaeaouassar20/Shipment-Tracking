@@ -1,7 +1,7 @@
 import {HttpClient} from '@angular/common/http';
 import { Injectable,inject, signal } from '@angular/core';
 import { Observable, tap } from 'rxjs';
-import { CreateShipmentRequest, Shipment, UpdateStatusRequest } from '../models/shipment.model';
+import { CreateShipmentRequest, Shipment, UpdateStatusRequest } from '../../models/shipment.model';
 
 
 @Injectable({

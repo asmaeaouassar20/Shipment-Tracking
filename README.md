@@ -12,6 +12,10 @@
 
 ## Architecture
 
+
+<img width="2752" height="1520" alt="server_architecture_diagram" src="https://github.com/user-attachments/assets/8f22d6b8-928a-4fcf-a1a1-4a4c7df9de9d" />
+
+
 Le projet suit une architecture séparant le frontend et le backend.
 
                     ┌──────────────────────┐
@@ -35,6 +39,18 @@ Le projet suit une architecture séparant le frontend et le backend.
                  │          │                │
                  │        Database           │
                  └───────────────────────────┘
+
+                 
+
+## Diagramme de séquence illustrant le mécanisme de short polling (interrogation périodique) entre un client et un serveur
+<img width="1420" height="1080" alt="diagramme_short_polling" src="https://github.com/user-attachments/assets/d59058cd-67df-4f12-b49e-23bd3ed6a25b" />
+
+## Schéma illustrant le fonctionnement du HTTP traditionnel : chaque nouvelle information nécessite une nouvelle requête du client
+<img width="1460" height="819" alt="diagramme_http_traditionnel" src="https://github.com/user-attachments/assets/2a05860a-6b44-45b0-98cc-75ca79b8eabb" />
+
+
+
+
 
 ## Technologies utilisées
 Backend
@@ -64,6 +80,10 @@ Architecture & communication
 
 ## Fonctionnement du temps réel
 Le système utilise les WebSockets pour permettre au backend de communiquer directement avec les clients connectés.  
+
+<br/>
+<img width="1460" height="600" alt="diagramme_websocket" src="https://github.com/user-attachments/assets/d0861961-1ed1-457f-83a5-e12e2700d100" />
+<br/>
 
 Lorsqu'une expédition est créée ou que son statut est modifié :
 - Le backend traite la modification.
